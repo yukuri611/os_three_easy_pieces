@@ -8,7 +8,7 @@ int main() {
 
     const char *file = "testfile.txt";
 
-    for (int i = 0; i < 2000000; i++) {
+    for (int i = 0; i < 3000000; i++) {
         FILE *fp = fopen(file, "r");
         fclose(fp);
     }
@@ -16,7 +16,7 @@ int main() {
     clock_gettime(CLOCK_MONOTONIC, &finish);
     double total_time = (finish.tv_sec - start.tv_sec) +
                         (finish.tv_nsec - start.tv_nsec) / 1e9;
-    double avg_time_per_call = total_time / 2000000.0;
+    double avg_time_per_call = total_time / 3000000.0;
     printf("Total time: %.4f seconds\n", total_time);
     printf("Average time per fork: %.9f seconds\n", avg_time_per_call);
 
